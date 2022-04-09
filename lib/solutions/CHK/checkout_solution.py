@@ -4,7 +4,7 @@
 # skus = unicode string
 
 prices = {"A": 50, "B": 30, "C": 20, "D": 15}
-offers = {"A": {3: 130}, "B": {2: 45}}
+offers = {"A": [3, 130], "B": [2, 45]}
 
 def checkout(skus):
     '''
@@ -32,7 +32,14 @@ def checkout(skus):
         if sku in offers:
             # if an sku is in an offer then we'll need to find out how many
             # of those offers can be applied... I think? so buying 6A's should be 260
-            offer_amount = offers[sku]
+            # Extract the minimum ammount for the offer
+            offer_amount = offers[sku][0]
+            # if the number of items bought is larger than the offer amount, apply the discount
+            if number_of_items[sku] >= offer_amount:
+                # how many times should we apply the offer? Suppose we have 4 items, then 
+                application = number_of_items[sku] - offer_amount
+            
+
 
 
 
