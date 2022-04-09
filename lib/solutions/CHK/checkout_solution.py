@@ -6,6 +6,12 @@
 prices = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40}
 offers = {"A": [3, 130, 5, 200], "B": [2, 45], "E": []}
 
+
+def find_best_deal():
+    pass
+
+
+
 def checkout(skus):
     '''
     skus: a string eg. "AAB"
@@ -61,8 +67,6 @@ def checkout(skus):
         running_total += total_for_each_sku[sku]
     
     return running_total
-
-
 
 
 
