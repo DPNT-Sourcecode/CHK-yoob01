@@ -36,9 +36,15 @@ def checkout(skus):
             offer_amount = offers[sku][0]
             # if the number of items bought is larger than the offer amount, apply the discount
             if number_of_items[sku] >= offer_amount:
-                # how many times should we apply the offer? Suppose we have 4 items, then 
-                application = number_of_items[sku] - offer_amount
+                if number_of_items[sku] % offers[sku][0] == 0:
+                    # if the number of items is just a multiple of the offer amount
+                    # then it's easy to see we just need to apply a multiple of the offer
+                    multiplier = number_of_items[sku] / offers[sku][0]
+                    total_for_each_sku[sku] = offers[sku][1] * multiplier
+                else:
+                    # When the 
             
+
 
 
 
