@@ -35,7 +35,8 @@ def checkout(skus):
             # Extract the minimum ammount for the offer
             if len(offers[sku]) > 2:
                 # if the len of the offers array is greater than 2, we have multiple offers to deal with
-                # We'll 
+                # We'll need to find the best offer to apply, so if we have 12 A, then we could group that as 
+                # 4 * 3A or as 2 * 5A + 2A, which one is better? This looks like a DP rod cutting problem.
                 pass
             # if the number of items bought is larger than the offer amount, apply the discount
             if number_of_items[sku] >= offer_amount:
@@ -60,6 +61,7 @@ def checkout(skus):
         running_total += total_for_each_sku[sku]
     
     return running_total
+
 
 
 
