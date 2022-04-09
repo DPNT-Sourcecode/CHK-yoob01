@@ -46,9 +46,12 @@ def checkout(skus):
                     # say we have 4 items, then we can group this as 1 offer + 1 sku
                     # Likewise if we have 5 items then we can group this as 1 offer + 2 sku
 
-                    # say we have 5 A items, then number of 
-                    number_of_skus = number_of_items[sku] - offers[sku][1]
+                    # say we have 5 A items, then number_of_skus is going to be 5 - 3 = 2 
+                    number_of_skus = number_of_items[sku] % offers[sku][0]
+                    number_of_offers = int(number_of_items[sku] / offers[sku][0])
+                    total_for_each_sku[sku] = (prices[sku] * number_of_skus) + (offers[sku])
             
+
 
 
 
