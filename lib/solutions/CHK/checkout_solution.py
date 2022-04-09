@@ -4,7 +4,7 @@
 # skus = unicode string
 
 prices = {"A": 50, "B": 30, "C": 20, "D": 15}
-offers = {"3A": 130, "2B": 45}
+offers = {"A": {3: 130}, "B": {2: 45}}
 
 def checkout(skus):
     '''
@@ -23,7 +23,12 @@ def checkout(skus):
         else:
             number_of_items[char] = 1
     
-    
+    # Once we've added up all the different skus, check for special offers
+    for sku in number_of_items:
+        if sku in offers:
+            # if an sku is in an offer then we'll need to 
+
+
 
 
 
