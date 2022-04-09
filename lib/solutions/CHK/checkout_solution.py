@@ -3,8 +3,8 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 
-prices = {"A": 50, "B": 30, "C": 20, "D": 15}
-offers = {"A": [3, 130], "B": [2, 45]}
+prices = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40}
+offers = {"A": [3, 130, 5, 200], "B": [2, 45], "E": []}
 
 def checkout(skus):
     '''
@@ -33,7 +33,10 @@ def checkout(skus):
             # if an sku is in an offer then we'll need to find out how many
             # of those offers can be applied... I think? so buying 6A's should be 260
             # Extract the minimum ammount for the offer
-            offer_amount = offers[sku][0]
+            if len(offers[sku]) > 2:
+                # if the len of the offers array is greater than 2, we have multiple offers to deal with
+                # We'll 
+                pass
             # if the number of items bought is larger than the offer amount, apply the discount
             if number_of_items[sku] >= offer_amount:
                 if number_of_items[sku] % offers[sku][0] == 0:
@@ -57,6 +60,7 @@ def checkout(skus):
         running_total += total_for_each_sku[sku]
     
     return running_total
+
 
 
 
