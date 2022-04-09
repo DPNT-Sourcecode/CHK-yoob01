@@ -49,16 +49,14 @@ def checkout(skus):
                     # say we have 5 A items, then number_of_skus is going to be 5 - 3 = 2 
                     number_of_skus = number_of_items[sku] % offers[sku][0]
                     number_of_offers = int(number_of_items[sku] / offers[sku][0])
-                    total_for_each_sku[sku] = (prices[sku] * number_of_skus) + (offers[sku])
-            
+                    total_for_each_sku[sku] = (prices[sku] * number_of_skus) + (offers[sku][1] * number_of_offers)
 
 
-
-
-
-
-
-
+    running_total = 0
+    for sku in total_for_each_sku:
+        running_total += total_for_each_sku[sku]
+    
+    return running_total
 
 
 
