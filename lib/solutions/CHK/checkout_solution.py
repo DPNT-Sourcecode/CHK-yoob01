@@ -51,7 +51,13 @@ def remove_sku(skus: str, rules):
     output_bought = ""
     counter = 0
     single_skus = set(skus)
-    
+    has_one = False
+    for i in single_skus:
+        if i in buy_get_free:
+            has_one = True
+    if not has_one:
+        return skus
+
     for i in single_skus:
         if i in rules:
             for sku in skus:

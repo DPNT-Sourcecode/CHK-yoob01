@@ -39,7 +39,7 @@ def test_checkout_eeeebbb():
     # 4 * E + B = 4 * 40 + 30 = 160 + 30 = 190
     assert total == 190
 
-def test_checkout_aeeeebbb():
+def test_checkout_aaeeeebbb():
     total = checkout("AAEEEEBBB")
     # A + 4 * E + B = 50 + 4 * 40 + 30 = 160 + 30 = 190
     assert total == 290
