@@ -9,7 +9,7 @@
 prices = {"A": [50, 130, 200], "B": [30, 45], "D": [15], "E": [40], "C": [20]}
 quantities = {"A": [1, 3, 5], "B": [1, 2], "D": [1], "E": [1], "C": [1]}
 combined = {"A": {1: 50, 3: 130, 5: 200}, "B": {1: 30, 2: 45}, "D": {1: 15}, "E": {1: 40}, "C": {1: 20}}
-buy_get_free = {"E": {"bought": 2, "deal": {}}}
+buy_get_free = {"E": {"bought": 2, "deal": {"remove": "B", "amount": 1}}}
 
 def find_best_deal(prices, quantities, number_of_items, sku):
     '''
@@ -42,8 +42,12 @@ def find_best_deal(prices, quantities, number_of_items, sku):
     return counters
 
 
-def remove_sku(skus, rules):
-    pass
+def remove_sku(skus: str, sku_based_deal: str, rules):
+    '''
+    Based on the skus bought, we want to match the number of skus in 
+    '''
+    for sku in sku_based_deal:
+        pass
 
 def checkout(skus):
     '''
@@ -77,6 +81,7 @@ def checkout(skus):
         running_total += total_for_each_sku[sku]
     
     return running_total
+
 
 
 
