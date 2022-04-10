@@ -49,7 +49,7 @@ def remove_sku(skus: str, rules):
     take skus and a single sku as an input. 
     '''
     output_bought = ""
-    # counter = 0
+
     single_skus = set(skus)
     indices_to_skip = []
     has_one = False
@@ -121,6 +121,7 @@ def checkout(skus):
         running_total += total_for_each_sku[sku]
     
     return running_total
+
 
 
 
