@@ -60,15 +60,17 @@ def checkout(skus):
     total_for_each_sku = {}
     for sku in number_of_items:
         deal_groupings = find_best_deal(prices, quantities, number_of_items, sku)
+        print(deal_groupings)
         running_total = 0
         for grouping in deal_groupings:
             running_total += grouping * deal_groupings[grouping]
         total_for_each_sku[sku] = running_total
 
-
+    print(total_for_each_sku)
     running_total = 0
     for sku in total_for_each_sku:
         running_total += total_for_each_sku[sku]
     
     return running_total
+
 
