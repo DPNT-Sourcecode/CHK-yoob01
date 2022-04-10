@@ -56,6 +56,7 @@ def remove_sku(skus: str, sku_based_deal: str, rules):
     # at this point, we know how many instances of sku_based_deal we have
     # compute the maximum number of deals to apply, if we have 2 E's, then here we will be able to apply 1 deal
     deal_to_apply = counter // rules[sku_based_deal]["bought"]
+    print(deal_to_apply)
     if deal_to_apply < 1:
         return skus
     skus_skipped = 0
@@ -67,7 +68,7 @@ def remove_sku(skus: str, sku_based_deal: str, rules):
         else:
             output_bought += sku
     return output_bought
-    
+    rules[sku_based_deal]["deal"]["amount"]
 
 def checkout(skus):
     '''
@@ -105,4 +106,5 @@ def checkout(skus):
         running_total += total_for_each_sku[sku]
     
     return running_total
+
 
