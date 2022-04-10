@@ -56,6 +56,10 @@ def test_checkout_fff():
     total = checkout("FFF")
     assert total == 20
 
-def test_checkout_affffeeeb():
-    total = checkout("AFFFFEEEB")
-    # A + 4 * F + 3 * E + B = 50 + 4 * 10 + 3 * 40 + 30 = 
+def test_checkout_affff():
+    total = checkout("AFFFF")
+    # A + 4 * F = 50 + 4 * 10 - 2 * 10 (because we get 2 free) = 70
+    assert total == 70
+
+def test_checkout_affffe():
+    
