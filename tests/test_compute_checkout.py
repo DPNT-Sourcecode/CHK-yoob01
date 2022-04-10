@@ -9,6 +9,10 @@ def test_checkout():
     total = checkout("AAABEE")
     assert total == 210
 
+def test_checkout_aa():
+    total = checkout("AA")
+    assert total == 100
+
 def test_checkout_a():
     total = checkout("A")
     assert total == 50
@@ -36,6 +40,6 @@ def test_checkout_eeeebbb():
     assert total == 190
 
 def test_checkout_aeeeebbb():
-    total = checkout("AEEEEBBB")
+    total = checkout("AAEEEEBBB")
     # A + 4 * E + B = 50 + 4 * 40 + 30 = 160 + 30 = 190
-    assert total == 140
+    assert total == 290
