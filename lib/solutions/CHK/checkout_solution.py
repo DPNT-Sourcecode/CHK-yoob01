@@ -3,16 +3,18 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 
-prices = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40}
-offers = {"A": [3, 130, 5, 200], "B": [2, 45], "E": []}
+# prices = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40}
+# offers = {"A": [3, 130, 5, 200], "B": [2, 45], "E": []}
 
+prices = {"A": [50, 130, 200], "B": [30, 45], "D": [15], "E": [40]}
 
-def find_best_deal():
+def find_best_deal(prices, number_of_items, ):
     '''
     We're going to group all deals together, so if we have 12 As then we're going to see how
     many A's we can group into a five deal, then how many to group into 3 and then 1. In general
+    given a list of N deals (and assuming that N-1 < N) we can apply this same heuristic
     '''
-
+    pass
 
 
 def checkout(skus):
@@ -70,5 +72,6 @@ def checkout(skus):
         running_total += total_for_each_sku[sku]
     
     return running_total
+
 
 
