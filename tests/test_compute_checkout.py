@@ -26,6 +26,6 @@ def test_checkout_eeeeb():
     total = checkout("EEEEB")
     assert total == 160
 
-def test_checkout_eeeebb():
+def test_checkout_eeeebbb():
     total = checkout("EEEEBBB")
     assert total == 190
