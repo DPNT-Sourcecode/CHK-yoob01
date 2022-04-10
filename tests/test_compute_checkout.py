@@ -9,6 +9,10 @@ def test_checkout():
     total = checkout("AAABEE")
     assert total == 210
 
+def test_checkout_a():
+    total = checkout("A")
+    assert total == 50
+
 def test_checkout_abcde():
     total = checkout("ABCDE")
     assert total == 155
