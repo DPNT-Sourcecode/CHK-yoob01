@@ -42,7 +42,7 @@ def find_best_deal(prices, quantities, number_of_items, sku):
     return counters
 
 
-def remove_sku(skus: str, sku_based_deal: str, rules):
+def remove_sku(skus: str, rules):
     '''
     Based on the skus bought, we want to match the number of skus in rules with the number of skus to remove
     for example, in EEB, we have 2 E's which means we need to remove 1 B
@@ -50,25 +50,28 @@ def remove_sku(skus: str, sku_based_deal: str, rules):
     '''
     output_bought = ""
     counter = 0
-    for sku in skus:
-        if sku == sku_based_deal:
-            counter += 1
-    # at this point, we know how many instances of sku_based_deal we have
-    # compute the maximum number of deals to apply, if we have 2 E's, then here we will be able to apply 1 deal
-    deal_to_apply = counter // rules[sku_based_deal]["bought"]
-    print(deal_to_apply)
-    if deal_to_apply < 1:
-        return skus
-    skus_skipped = 0
-    for sku in skus:
-        # EEEEBBB 
-        if sku == rules[sku_based_deal]["deal"]["remove"] and skus_skipped <= deal_to_apply:
-            skus_skipped += 1
-            pass
-        else:
-            output_bought += sku
+    single_skus = set(skus)
+    for i in single_skus:
+        if i in rules:
+            for sku in skus:
+                if sku == sku_based_deal:
+                    counter += 1
+            # at this point, we know how many instances of sku_based_deal we have
+            # compute the maximum number of deals to apply, if we have 2 E's, then here we will be able to apply 1 deal
+            deal_to_apply = counter // rules[sku_based_deal]["bought"]
+            print(deal_to_apply)
+            if deal_to_apply < 1:
+                return skus
+            skus_skipped = 0
+            for sku in skus:
+                # EEEEBBB 
+                if sku == rules[sku_based_deal]["deal"]["remove"] and skus_skipped <= deal_to_apply:
+                    skus_skipped += 1
+                    pass
+                else:
+                    output_bought += sku
     return output_bought
-    rules[sku_based_deal]["deal"]["amount"]
+    # rules[sku_based_deal]["deal"]["amount"]
 
 def checkout(skus):
     '''
@@ -106,4 +109,5 @@ def checkout(skus):
         running_total += total_for_each_sku[sku]
     
     return running_total
+
 
