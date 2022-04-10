@@ -74,6 +74,3 @@ def checkout(skus):
     
     return running_total
 
-
-
-
