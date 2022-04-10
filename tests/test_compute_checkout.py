@@ -17,3 +17,15 @@ def test_checkout_eeb():
     total = checkout("EEB")
     assert total == 80
 
+def test_checkout_eeeb():
+    total = checkout("EEEB")
+    assert total == 120
+
+
+def test_checkout_eeeeb():
+    total = checkout("EEEEB")
+    assert total == 160
+
+def test_checkout_eeeebb():
+    total = checkout("EEEEBBB")
+    assert total == 190
