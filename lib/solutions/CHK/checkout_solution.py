@@ -60,7 +60,8 @@ def remove_sku(skus: str, sku_based_deal: str, rules):
         return skus
     skus_skipped = 0
     for sku in skus:
-        if sku == rules[sku_based_deal]["deal"]["remove"] and skus_skipped <= rules[sku_based_deal]["deal"]["amount"]:
+        # EEEEBBB 
+        if sku == rules[sku_based_deal]["deal"]["remove"] and skus_skipped <= deal_to_apply:
             skus_skipped += 1
             pass
         else:
