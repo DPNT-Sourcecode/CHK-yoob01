@@ -21,6 +21,7 @@ def find_best_deal(prices, quantities, number_of_items, sku):
     # Since we've listed the prices and quantities from lowest to highest
     # but want to group highest to lowest, we need to reverse the quantity
     # Loop over every possible grouping that we have
+    counters = {i: 0 for i in _quantity}
     for index, value in enumerate(reversed(_quantity)):
         # Find the "leading term" so if we have 7 A's bought, then 7 // 5 = 1, which means that
         # we can form 1 5 bargin
