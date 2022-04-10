@@ -9,7 +9,7 @@
 prices = {"A": [50, 130, 200], "B": [30, 45], "D": [15], "E": [40], "C": [20], "F": [10]}
 quantities = {"A": [1, 3, 5], "B": [1, 2], "D": [1], "E": [1], "C": [1], "F": [1]}
 combined = {"A": {1: 50, 3: 130, 5: 200}, "B": {1: 30, 2: 45}, "D": {1: 15}, "E": {1: 40}, "C": {1: 20}, "F": {1: 10}}
-buy_get_free = {"E": {"bought": 2, "deal": {"remove": "B", "amount": 1}}, "F": {"bought": 2}, "deal": {"remove": "F", "amount": 1}}
+buy_get_free = {"E": {"bought": 2, "deal": {"remove": "B", "amount": 1}}, "F": {"bought": 2, "deal": {"remove": "F", "amount": 1}}}
 
 def find_best_deal(prices, quantities, number_of_items, sku):
     '''

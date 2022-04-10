@@ -51,3 +51,11 @@ def test_checkout_f():
 def test_checkout_ff():
     total = checkout("FF")
     assert total == 10
+
+def test_checkout_fff():
+    total = checkout("FFF")
+    assert total == 20
+
+def test_checkout_affffeeeb():
+    total = checkout("AFFFFEEEB")
+    # A + 4 * F + 3 * E + B = 50 + 4 * 10 + 3 * 40 + 30 = 
