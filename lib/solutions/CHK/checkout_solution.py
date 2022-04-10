@@ -18,8 +18,16 @@ def find_best_deal(prices, quantities, number_of_items, sku):
     _prices = prices[sku]
     _quantity = quantities[sku]
     number = number_of_items[sku]
+    # Since we've listed the prices and quantities from lowest to highest
+    # but want to group highest to lowest, we need to reverse the quantity
+    # Loop over every possible grouping that we have
     for index, value in enumerate(reversed(_quantity)):
-        
+        # 
+        leading_term = number // value
+        if leading_term < 1:
+            break
+        number -= leading_term * value
+        counters[value] = leading_term
 
 
 def checkout(skus):
@@ -77,6 +85,7 @@ def checkout(skus):
         running_total += total_for_each_sku[sku]
     
     return running_total
+
 
 
 
