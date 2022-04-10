@@ -22,12 +22,20 @@ def find_best_deal(prices, quantities, number_of_items, sku):
     # but want to group highest to lowest, we need to reverse the quantity
     # Loop over every possible grouping that we have
     for index, value in enumerate(reversed(_quantity)):
-        # 
+        # Find the "leading term" so if we have 7 A's bought, then 7 // 5 = 1, which means that
+        # we can form 1 5 bargin
         leading_term = number // value
+        # if the leading term is less than 1, then we can't form any bargins
         if leading_term < 1:
-            break
+            # so move onto the next in value in the deal
+            continue
+        # subtract the number of items we've formed a bargin with
         number -= leading_term * value
+        # save that leading term
         counters[value] = leading_term
+    # We return a dictionary of counters, that maps the deals to the number of those deals we can form
+    # So for example, given an 14 A's we can form 
+    return counters
 
 
 def checkout(skus):
@@ -85,6 +93,7 @@ def checkout(skus):
         running_total += total_for_each_sku[sku]
     
     return running_total
+
 
 
 
