@@ -51,6 +51,7 @@ def remove_sku(skus: str, rules):
     output_bought = ""
     counter = 0
     single_skus = set(skus)
+    indices_to_skip = []
     has_one = False
     for i in single_skus:
         if i in buy_get_free:
@@ -59,26 +60,31 @@ def remove_sku(skus: str, rules):
     if not has_one:
         return skus
 
-    for i in single_skus:
-        if i in rules:
+    for s_sku in single_skus:
+        # counter = 0
+        if s_sku in rules:
             for sku in skus:
-                if sku == i:
+                if sku == s_sku:
                     counter += 1
             # at this point, we know how many instances of sku_based_deal we have
             # compute the maximum number of deals to apply, if we have 2 E's, then here we will be able to apply 1 deal
-            deal_to_apply = counter // rules[i]["bought"]
+            deal_to_apply = counter // rules[s_sku]["bought"]
             if deal_to_apply < 1:
-                return skus
+                continue
             skus_skipped = 0
-            for sku in skus:
-                if sku == rules[i]["deal"]["remove"] and skus_skipped < deal_to_apply:
+            for index, sku in enumerate(skus):
+                if sku == rules[s_sku]["deal"]["remove"] and skus_skipped < deal_to_apply:
                     skus_skipped += 1
-                    pass
-                else:
-                    output_bought += sku
+                    indices_to_skip.append(index)
+
     # print(output_bought)
+    for index, value in enumerate(skus):
+        if index in indices_to_skip:
+            continue
+        else:
+            output_bought += value
+    
     return output_bought
-    # rules[sku_based_deal]["deal"]["amount"]
 
 def checkout(skus):
     '''
@@ -115,4 +121,5 @@ def checkout(skus):
         running_total += total_for_each_sku[sku]
     
     return running_total
+
 
