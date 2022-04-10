@@ -64,12 +64,14 @@ def remove_sku(skus: str, rules):
                 return skus
             skus_skipped = 0
             for sku in skus:
+                print(sku)
                 # EEEEBBB 
-                if sku == rules[i]["deal"]["remove"] and skus_skipped <= deal_to_apply:
+                if sku == rules[i]["deal"]["remove"] and skus_skipped < deal_to_apply:
                     skus_skipped += 1
                     pass
                 else:
                     output_bought += sku
+    print(output_bought)
     return output_bought
     # rules[sku_based_deal]["deal"]["amount"]
 
@@ -108,6 +110,7 @@ def checkout(skus):
         running_total += total_for_each_sku[sku]
     
     return running_total
+
 
 
 
