@@ -64,7 +64,7 @@ def checkout(skus):
         print(f"{sku}: {deal_groupings}")
         running_total = 0
         for grouping in deal_groupings:
-            running_total += grouping * deal_groupings[grouping]
+            running_total += combined[sku][grouping] * deal_groupings[grouping]
         total_for_each_sku[sku] = running_total
 
     print(total_for_each_sku)
@@ -73,4 +73,5 @@ def checkout(skus):
         running_total += total_for_each_sku[sku]
     
     return running_total
+
 
