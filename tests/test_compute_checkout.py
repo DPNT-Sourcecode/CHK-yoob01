@@ -62,4 +62,6 @@ def test_checkout_affff():
     assert total == 70
 
 def test_checkout_affffe():
-    
+    total = checkout("AFFFFE")
+    # A + 4 * F + E = 50 + 4 * 10 + 40 - 2 * 10 (because we get 2 free) = 110
+    assert total == 110

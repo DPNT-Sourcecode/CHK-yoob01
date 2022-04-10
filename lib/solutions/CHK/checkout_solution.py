@@ -55,6 +55,7 @@ def remove_sku(skus: str, rules):
     for i in single_skus:
         if i in buy_get_free:
             has_one = True
+
     if not has_one:
         return skus
 
@@ -66,7 +67,6 @@ def remove_sku(skus: str, rules):
             # at this point, we know how many instances of sku_based_deal we have
             # compute the maximum number of deals to apply, if we have 2 E's, then here we will be able to apply 1 deal
             deal_to_apply = counter // rules[i]["bought"]
-            print(deal_to_apply)
             if deal_to_apply < 1:
                 return skus
             skus_skipped = 0
