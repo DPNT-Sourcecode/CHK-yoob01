@@ -9,7 +9,7 @@
 prices = {"A": [50, 130, 200], "B": [30, 45], "D": [15], "E": [40], "C": [20], "F": [10]}
 quantities = {"A": [1, 3, 5], "B": [1, 2], "D": [1], "E": [1], "C": [1], "F": [1]}
 combined = {"A": {1: 50, 3: 130, 5: 200}, "B": {1: 30, 2: 45}, "D": {1: 15}, "E": {1: 40}, "C": {1: 20}, "F": {1: 10}}
-buy_get_free = {"E": {"bought": 2, "deal": {"remove": "B", "amount": 1}}, "F": {"bought": 2, "deal": {"remove": "F", "amount": 1}}}
+buy_get_free = {"E": {"bought": 2, "required": 2, "deal": {"remove": "B", "amount": 1}}, "F": {"bought": 2, "required": 3, "deal": {"remove": "F", "amount": 1}}}
 
 def find_best_deal(prices, quantities, number_of_items, sku):
     '''
@@ -42,7 +42,7 @@ def find_best_deal(prices, quantities, number_of_items, sku):
     return counters
 
 
-def remove_sku(skus: str, rules):
+def remove_sku(skus: str, rules, number_of_items):
     '''
     Based on the skus bought, we want to match the number of skus in rules with the number of skus to remove
     for example, in EEB, we have 2 E's which means we need to remove 1 B
@@ -62,7 +62,7 @@ def remove_sku(skus: str, rules):
 
     for s_sku in single_skus:
         counter = 0
-        if s_sku in rules:
+        if s_sku in rules and number_of_items[s_sku] >= rules[s_sku]["required"]:
             for sku in skus:
                 if sku == s_sku:
                     counter += 1
@@ -95,7 +95,14 @@ def checkout(skus):
         if char not in prices.keys():
             return -1
 
-    skus = remove_sku(skus, buy_get_free)
+    number_of_items = {}
+    for char in skus:
+        if char in number_of_items:
+            number_of_items[char] += 1
+        else:
+            number_of_items[char] = 1
+
+    skus = remove_sku(skus, buy_get_free, number_of_items)
 
 
     # Now add up all items to find the total
@@ -121,4 +128,5 @@ def checkout(skus):
         running_total += total_for_each_sku[sku]
     
     return running_total
+
 
