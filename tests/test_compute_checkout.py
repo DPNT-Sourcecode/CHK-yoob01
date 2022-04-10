@@ -5,9 +5,9 @@ quantities = {"A": [1, 3, 5], "B": [1, 2], "D": [1], "E": [1]}
 
 def test_checkout():
     # We have 3 A's, 1 B and 2 E's
-    # So 130 + 30 + 40 + 40 (and since we get a B for free, we don't have to care about it)
+    # So 130 + 30 + 40 + 40 - 30 (since we have a free B)
     total = checkout("AAABEE")
-    assert total == 240
+    assert total == 210
 
 def test_checkout_abcde():
     total = checkout("ABCDE")
@@ -16,3 +16,4 @@ def test_checkout_abcde():
 def test_checkout_eeb():
     total = checkout("EEB")
     assert total == 80
+
