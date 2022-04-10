@@ -76,7 +76,7 @@ def remove_sku(skus: str, rules):
                     pass
                 else:
                     output_bought += sku
-    print(output_bought)
+    # print(output_bought)
     return output_bought
     # rules[sku_based_deal]["deal"]["amount"]
 
@@ -115,5 +115,6 @@ def checkout(skus):
         running_total += total_for_each_sku[sku]
     
     return running_total
+
 
 
