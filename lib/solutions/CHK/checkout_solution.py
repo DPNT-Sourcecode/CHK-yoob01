@@ -6,7 +6,7 @@
 # prices = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40}
 # offers = {"A": [3, 130, 5, 200], "B": [2, 45], "E": []}
 
-prices = {"A": [50, 130, 200], "B": [30, 45], "D": [15], "E": [4]}
+prices = {"A": [50, 130, 200], "B": [30, 45], "D": [15], "E": [40]}
 quantities = {"A": [1, 3, 5], "B": [1, 2], "D": [1], "E": [1]}
 
 def find_best_deal(prices, quantities, number_of_items, sku):
@@ -71,11 +71,4 @@ def checkout(skus):
         running_total += total_for_each_sku[sku]
     
     return running_total
-
-
-
-
-
-
-
 
