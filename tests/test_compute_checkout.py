@@ -8,3 +8,11 @@ def test_checkout():
     # So 130 + 30 + 40 + 40 (and since we get a B for free, we don't have to care about it)
     total = checkout("AAABEE")
     assert total == 240
+
+def test_checkout_abcde():
+    total = checkout("ABCDE")
+    assert total == 155
+
+def test_checkout_eeb():
+    total = checkout("EEB")
+    assert total == 80
