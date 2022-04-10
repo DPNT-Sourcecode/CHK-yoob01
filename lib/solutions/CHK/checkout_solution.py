@@ -8,7 +8,10 @@ offers = {"A": [3, 130, 5, 200], "B": [2, 45], "E": []}
 
 
 def find_best_deal():
-    pass
+    '''
+    We're going to group all deals together, so if we have 12 As then we're going to see how
+    many A's we can group into a five deal, then how many to group into 3 and then 1. In general
+    '''
 
 
 
@@ -42,7 +45,7 @@ def checkout(skus):
             if len(offers[sku]) > 2:
                 # if the len of the offers array is greater than 2, we have multiple offers to deal with
                 # We'll need to find the best offer to apply, so if we have 12 A, then we could group that as 
-                # 4 * 3A or as 2 * 5A + 2A, which one is better? This looks like a DP rod cutting problem.
+                # 4 * 3A or as 2 * 5A + 2A, which one is better? With a huristic we can do this a lot easier
                 pass
             # if the number of items bought is larger than the offer amount, apply the discount
             if number_of_items[sku] >= offer_amount:
@@ -67,4 +70,5 @@ def checkout(skus):
         running_total += total_for_each_sku[sku]
     
     return running_total
+
 
