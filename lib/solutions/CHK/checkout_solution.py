@@ -44,10 +44,15 @@ def find_best_deal(prices, quantities, number_of_items, sku):
 
 def remove_sku(skus: str, sku_based_deal: str, rules):
     '''
-    Based on the skus bought, we want to match the number of skus in 
+    Based on the skus bought, we want to match the number of skus in rules with the number of skus to remove
+    for example, in EEB, we have 2 E's which means we need to remove 1 B
+    take skus and a single sku as an input. 
     '''
-    for sku in sku_based_deal:
-        pass
+    output_bought = ""
+    counters = {}
+    for sku in skus:
+        if sku == sku_based_deal:
+            
 
 def checkout(skus):
     '''
@@ -81,6 +86,7 @@ def checkout(skus):
         running_total += total_for_each_sku[sku]
     
     return running_total
+
 
 
 
